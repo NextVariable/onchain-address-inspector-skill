@@ -1,0 +1,3 @@
+interface:
+  display_name: "链上地址核查 / On-chain Address Inspector"
+  short_description: "地址活动与证据核查 / Address activity evidence; Monad Testnet"

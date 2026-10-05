@@ -1,0 +1,4 @@
+# Maintenance tools only; the installed skill uses Python standard library.
+ruff==0.12.0
+coverage[toml]==7.10.7
+PyYAML==6.0.2
