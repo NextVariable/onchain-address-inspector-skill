@@ -60,6 +60,10 @@ Python needs a valid trusted CA configuration. On TLS failure, check certificate
 
 Pass credential-bearing endpoints through `MONAD_TESTNET_RPC`. Results, progress, and errors omit the RPC URL and do not echo raw provider errors. Do not put URLs containing keys in public commands, evidence, or Git commits.
 
+`--rpc` 和 `MONAD_TESTNET_RPC` 接受任何有效的 HTTP(S) 地址，包括本机和内网地址，脚本会按原样连接并只发送五个只读方法。只使用你信任的端点；不要让不可信的输入决定这个地址。
+
+`--rpc` and `MONAD_TESTNET_RPC` accept any valid HTTP(S) URL, including loopback and private-network addresses, and the script connects to it as given, sending only the five read methods. Use endpoints you trust, and do not let untrusted input choose this URL.
+
 ## 如何解读结果 / Interpreting results
 
 先看 `coverage.complete`、`coverage.chain_consistent`、`errors`、失败区块和缺失回执。`metrics=null` 表示不能可靠汇总，不表示零活动。部分扫描的统计只描述已取得样本；回执未知不等于链上失败。`transactions` 保存可追溯交易记录，金额以字符串 wei 和 18 位 MON 小数输出，避免浮点损失。
