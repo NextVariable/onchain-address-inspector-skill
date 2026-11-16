@@ -11,6 +11,7 @@ import sys
 import threading
 import time
 import urllib.parse
+from itertools import pairwise
 
 from evidence import (
     EXPLORER,
@@ -243,7 +244,7 @@ def scan(args, client=None):
         headers = sorted(out["coverage"]["block_headers"], key=lambda h: h["block"])
         out["coverage"]["block_headers"] = headers
         consistency_errors = []
-        for previous, current in zip(headers, headers[1:]):
+        for previous, current in pairwise(headers):
             if (
                 current["block"] == previous["block"] + 1
                 and current["parent_hash"] != previous["hash"]
